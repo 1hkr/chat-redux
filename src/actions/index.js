@@ -1,5 +1,13 @@
 // Actions
 
+// actions to select a channel
+export function selectChannel(channel) {
+  return {
+    type: 'SELECTED_CHANNEL',
+    payload: channel
+  };
+}
+
 // actions to receive messages
 export function fetchMessages(channel) {
   const promise = fetch(`https://wagon-chat.herokuapp.com/${channel}/messages`)

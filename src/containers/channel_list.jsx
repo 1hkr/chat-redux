@@ -1,10 +1,24 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { selectChannel, fetchMessages } from '../actions';
 
 class ChannelList extends Component {
+
+
+  handleClick(channel) {
+    this.props.selectChannel(channel);
+  }
+
+
   renderChannel = (channel) => {
     return (
-      <li>{channel}</li>
+      <li
+        key={channel}
+        className={channel === this.props.selectedChannel ? 'active' : null}
+        onClick={() => this.handleClick(channel)} >
+        {channel}
+      </li>
     );
   }
 
@@ -12,14 +26,17 @@ class ChannelList extends Component {
   render() {
     return (
       <div className="channels-container">
-          <span>Super Chat</span>
-            <ul>
-              { this.props.channels.map(this.renderChannel)}
-            </ul>
-
+        <span>Super Chat</span>
+        <ul>
+          { this.props.channels.map(this.renderChannel)}
+        </ul>
       </div>
     );
   }
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ selectChannel, fetchMessages }, dispatch);
 }
 
 function mapStateToProps(state) {
@@ -29,4 +46,5 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(ChannelList);
+
+export default connect(mapStateToProps, mapDispatchToProps)(ChannelList);
