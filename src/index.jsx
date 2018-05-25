@@ -2,26 +2,40 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { logger } from 'redux-logger';
+import reduxPromise from 'redux-promise';
+
+import identityReducer from './reducers/identity_reducer';
+import messagesReducer from './reducers/messages_reducer';
 
 // internal modules
 import App from './components/app';
 import '../assets/stylesheets/application.scss';
 
+
 // State and reducers
 const initialState = {
-  messages: [],
-  channels: [buenise, douceur, lolo],
-  currentUser:
+  messages: { messages: [] },
+  channels: ['general', 'douceur', 'lolo'],
+  selectedChannel: 'douceur',
+  currentUser: prompt("What's your id?") || `anonymous${Math.floor(Math.random() * 100)}`
+  // currentUser: prompt("What's your id?") ||,
 };
 
 const reducers = combineReducers({
-  changeMe: (state = null, action) => state
+  messages: messagesReducer,
+  channels: identityReducer,
+  currentUser: identityReducer,
+  selectedChannel: identityReducer
 });
+
+const middlewares = applyMiddleware(reduxPromise, logger);
+const store = createStore(reducers, initialState, middlewares);
 
 // render an instance of the component in the DOM
 ReactDOM.render(
-  <Provider store={createStore(reducers)}>
+  <Provider store={store}>
     <App />
   </Provider>,
   document.getElementById('root')
