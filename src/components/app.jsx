@@ -7,7 +7,7 @@ const App = () => {
     <div className="app">
       <div className="messaging-wrapper">
         <div className="logo-container">
-          <img className="messaging-logo" src="assets/images/logo.png" alt="logo" />
+          <img className="messaging-logo" src="http://res.cloudinary.com/djw1qzpwq/image/upload/v1527260758/Logo.png" alt="logo" />
         </div>
         <ChannelList />
         <MessageList />
