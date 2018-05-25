@@ -1,5 +1,6 @@
 import React from 'react';
 import MessageList from '../containers/message_list';
+import ChannelList from '../containers/channel_list';
 
 const App = () => {
   return (
@@ -8,8 +9,7 @@ const App = () => {
         <div className="logo-container">
           <img className="messaging-logo" src="assets/images/logo.png" alt="logo" />
         </div>
-        <div className="channels-container">
-        </div>
+        <ChannelList />
         <MessageList />
       </div>
     </div>
