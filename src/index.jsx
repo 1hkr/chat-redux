@@ -18,8 +18,8 @@ import '../assets/stylesheets/application.scss';
 // State and reducers
 const initialState = {
   messages: { messages: [] },
-  channels: ['general', 'douceur', 'lolo'],
-  selectedChannel: 'douceur',
+  channels: ['Main', 'Events', 'Lolex'],
+  selectedChannel: 'Main',
   currentUser: prompt("What's your id?") || `anonymous${Math.floor(Math.random() * 100)}`
   // currentUser: prompt("What's your id?") ||,
 };
