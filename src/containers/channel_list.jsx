@@ -26,7 +26,9 @@ class ChannelList extends Component {
   render() {
     return (
       <div className="channels-container">
-        <span>Super Chat</span>
+        <span>
+          Super Chat
+        </span>
         <ul>
           { this.props.channels.map(this.renderChannel)}
         </ul>
