@@ -6,7 +6,7 @@ const App = () => {
   return (
     <div className="app">
       <div className="messaging-wrapper">
-        <div className="logo-container">
+        <div className="logo-container hidden-xs">
           <div className="messaging-logo-container shadow">
             <img className="messaging-logo" src="http://res.cloudinary.com/djw1qzpwq/image/upload/v1527260758/Logo.png" alt="logo" />
           </div>

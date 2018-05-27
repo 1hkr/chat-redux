@@ -25,7 +25,7 @@ class ChannelList extends Component {
 
   render() {
     return (
-      <div className="channels-container">
+      <div className="channels-container hidden-xs">
         <ul>
           { this.props.channels.map(this.renderChannel)}
         </ul>
