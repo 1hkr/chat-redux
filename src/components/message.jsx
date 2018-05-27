@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-const stringToColour = (str) => {
+export function stringToColour(str) {
   let hash = 0;
   for (let i = 0; i < str.length; i++) {
     hash = str.charCodeAt(i) + ((hash << 5) - hash);
@@ -12,14 +12,14 @@ const stringToColour = (str) => {
     colour += ('00' + value.toString(16)).substr(-2);
   }
   return colour;
-};
+}
 
 const Message = (props) => {
   return (
     <div className={props.currentUser === props.message.author ? 'message-container message-right' : 'message-container message-left'}>
       <i style={{ color: stringToColour(props.message.author) }}>
         {props.message.author}
-        <small>{props.message.created_at}</small>
+        <small>{props.message.created_at.slice(11, 16)}</small>
       </i>
       <p>{props.message.content}</p>
     </div>
