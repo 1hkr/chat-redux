@@ -84,6 +84,7 @@ body {
   box-sizing: border-box;
   height: 100%;
   overflow: scroll;
+  padding: 5%;
 }
 
 .message-container {
@@ -92,8 +93,10 @@ body {
   padding-left: 10px;
   padding-bottom: 1px;
   border-radius: 10px;
-  width: 30%;
+  width: 45%;
   margin-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 10px;
 }
 
 .message-container > i {
