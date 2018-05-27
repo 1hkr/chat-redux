@@ -120,6 +120,16 @@ body {
   margin: 5px 0 10px;
 }
 
+.message-right {
+  float: right;
+  margin-left: 100%;
+}
+
+.message-left {
+  float: left;
+  margin-right: 100%;
+}
+
 .channel-editor {
   display: flex;
   padding: 20px;

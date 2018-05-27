@@ -1,8 +1,9 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 const Message = (props) => {
   return (
-    <div className="message-container">
+    <div className={props.currentUser === props.message.author ? 'message-container message-right' : 'message-container message-left'}>
       <i>
         {props.message.author}
         <small>{props.message.created_at}</small>
@@ -12,5 +13,11 @@ const Message = (props) => {
   );
 };
 
+function mapStateToProps(state) {
+  return {
+    currentUser: state.currentUser,
+  };
+}
 
-export default Message;
+
+export default connect(mapStateToProps)(Message);
