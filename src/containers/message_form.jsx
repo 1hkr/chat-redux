@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { stringToColour } from '../components/message';
-import Emojify from 'react-emojione';
 import { createMessage } from '../actions/index';
 
 

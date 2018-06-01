@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { emojify } from 'react-emojione';
 
 export function stringToColour(str) {
   let hash = 0;
@@ -21,7 +22,7 @@ const Message = (props) => {
         {props.message.author}
         <small>{props.message.created_at.slice(11, 16)}</small>
       </i>
-      <p>{props.message.content}</p>
+      <p> { emojify(props.message.content) } </p>
     </div>
   );
 };
