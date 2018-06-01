@@ -7,7 +7,7 @@ import MessageForm from './message_form';
 
 class MessageList extends Component {
   componentWillMount() {
-    this.props.fetchMessages(this.props.selectedChannel);
+    this.props.fetchMessages(this.props.channelFromParams);
   }
 
   componentDidMount() {
@@ -23,7 +23,7 @@ class MessageList extends Component {
   }
 
   fetchMessages = () => {
-    this.props.fetchMessages(this.props.selectedChannel);
+    this.props.fetchMessages(this.props.channelFromParams);
   }
 
   render() {
@@ -39,7 +39,7 @@ class MessageList extends Component {
           { this.props.messages.messages.map(
             message => <Message message={message} key={message.content} />)}
         </div>
-        <MessageForm />
+        <MessageForm channelFromParams={this.props.channelFromParams} />
       </div>
     );
   }
@@ -55,7 +55,6 @@ function mapDispatchToProps(dispatch) {
 function mapStateToProps(state) {
   return {
     messages: state.messages,
-    selectedChannel: state.selectedChannel
   };
 }
 
